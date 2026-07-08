@@ -1,6 +1,8 @@
 /* ============================================================
  * SKIN-01.css - Jellyfin 客户端样式
  * ============================================================ */
+
+
 /* ---------- 1. 隐藏侧边字母导航栏，隐藏后整体居中 ---------- */
 .alphabetPicker,
 .alphaPicker,
@@ -10,25 +12,58 @@
     display: none !important;
 }
 
+/* 隐藏 */
+/* .mainDrawer,
+.tmla-mask , */
+.itemsViewSettingsContainer,
+.paper-icon-button-light
+{
+    display: none !important;
+}
+
 .padded-right-withalphapicker {
-    padding-right: 1.5em !important;
+    padding-right: 0.6em !important;
 }
 
 .padded-left {
-    padding-left: 1.5em !important;
+    padding-left: 0.6em !important;
 }
 
 .padded-right {
-    padding-right: 1.5em !important;
+    padding-right: 0.6em !important;
 }
 
+
+
 /* ---------- 2. 封面宽度92%居中显示 ---------- */
+
+/* 新增：为封面所在的div添加左右10px的内边距 */
+.backdropCard,
+.portraitCard,
+.cardBox {
+    padding-left: 0.2em !important;
+    padding-right: 0.2em !important;
+    /* 使用box-sizing确保padding不会让元素总宽度超出预期 */
+    box-sizing: border-box !important; 
+
+}
+
+
+.cardBox-bottompadded { 
+    margin: 0 !important;
+}
+
+
+/* 修改：让封面图片占满其父容器（即上面的div） */
 .cardImageContainer.coveredImage {
-    width: 92% !important;
+    /* 移除 width: 92% 和 margin-left/right: 4% */
+    /* 恢复为默认的100%宽度 */
+    width: 100% !important;
     background-position: center !important;
     background-size: cover !important;
-    margin-left: 4% !important;
-    margin-right: 4% !important;
+    /* 移除左右margin */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     left: auto !important;
     right: auto !important;
     transform: none !important;
@@ -40,6 +75,9 @@
     margin-right: 4% !important;
     box-sizing: border-box !important;
 }
+
+
+
 
 /* ---------- 3. 封面标题：单行居中，多行左对齐 ---------- */
 .cardText.cardTextCentered.cardText-first {
@@ -61,12 +99,4 @@
     vertical-align: top !important;
 }
 
-/* ---------- 4. 减少卡片底部空白 ---------- */
-.cardBox.cardBox-bottompadded {
-    padding-bottom: 0.5em !important;
-    margin-right: 0 !important;
-}
 
-.cardText {
-    margin-bottom: 0.2em !important;
-}
